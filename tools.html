@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools & Resources — APL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tools-hero {
+      background: linear-gradient(135deg, #0f0c29 0%, #1a1040 50%, #0c0c0c 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 48px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tools-hero::before {
+      content: '✦';
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 120px;
+      color: rgba(201,169,110,0.06);
+      line-height: 1;
+    }
+    .tools-hero-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 40px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .tools-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .tools-hero p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .category-section { margin-bottom: 48px; }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .category-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .category-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .category-count {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 3px 10px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .tool-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201,169,110,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .tool-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tool-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .tool-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .badge {
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    .badge-free { background: rgba(111,207,151,0.15); color: #6fcf97; border: 1px solid rgba(111,207,151,0.25); }
+    .badge-hot { background: rgba(235,87,87,0.15); color: #f27070; border: 1px solid rgba(235,87,87,0.25); }
+    .badge-fav { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,169,110,0.25); }
+    .badge-video { background: rgba(130,100,200,0.15); color: #a78ce0; border: 1px solid rgba(130,100,200,0.25); }
+
+    .tool-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+    .tool-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .tool-limit {
+      font-size: 11px;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border-radius: 6px;
+      padding: 5px 10px;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+    .tool-link-icon {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: auto;
+    }
+
+    .pro-tip {
+      background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.03));
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .pro-tip-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .pro-tip-title { font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 4px; letter-spacing: 0.3px; }
+    .pro-tip-text { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">APL</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Profile
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        Daily Prompts
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Community
+      </a>
+      <a href="tools.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Resources
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">P</div>
+        <div class="user-info">
+          <span class="user-name">pathtorichnesss</span>
+          <span class="user-role">Creator</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="tools-hero">
+      <span class="tools-hero-tag">Free Tools Vault</span>
+      <h1>Your AI Toolkit</h1>
+      <p>Every free tool you need to create stunning AI images and videos — curated, tested, and APL-approved.</p>
+    </div>
+
+    <div class="pro-tip">
+      <span class="pro-tip-icon">✦</span>
+      <div>
+        <div class="pro-tip-title">APL Recommended Stack</div>
+        <div class="pro-tip-text">Start with <strong style="color:var(--text-sub)">Leonardo.ai</strong> for images + <strong style="color:var(--text-sub)">Kling AI</strong> for video + <strong style="color:var(--text-sub)">CapCut</strong> to edit. That trio covers 90% of what you need — all free.</div>
+      </div>
+    </div>
+
+    <!-- AI Image Tools -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-icon">🖼️</div>
+        <span class="category-title">AI Image Generators</span>
+        <span class="category-count">10 tools</span>
+      </div>
+      <div class="tools-grid" id="imageTools"></div>
+    </div>
+
+    <!-- AI Video Tools -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-icon">🎬</div>
+        <span class="category-title">AI Video Generators</span>
+        <span class="category-count">7 tools</span>
+      </div>
+      <div class="tools-grid" id="videoTools"></div>
+    </div>
+
+    <!-- Editing Tools -->
+    <div class="category-section">
+      <div class="category-header">
+        <div class="category-icon">✨</div>
+        <span class="category-title">Editing & Enhancement</span>
+        <span class="category-count">6 tools</span>
+      </div>
+      <div class="tools-grid" id="editTools"></div>
+    </div>
+
+  </main>
+
+  <script>
+    const imageTools = [
+      { icon: "🎨", name: "Leonardo.ai", desc: "Best overall for aesthetic content. Consistent style, beautiful quality. Use the Phoenix or Flux models.", limit: "150 free tokens/day", badges: ["free", "fav"], url: "https://leonardo.ai" },
+      { icon: "🖼️", name: "Microsoft Designer", desc: "Powered by DALL-E. Unlimited free images via Bing. Great for quick lifestyle shots.", limit: "Unlimited free", badges: ["free", "hot"], url: "https://designer.microsoft.com" },
+      { icon: "💡", name: "Ideogram.ai", desc: "Incredible at text-on-image. Best free tool for quotes, poster aesthetics, and branded visuals.", limit: "10 free/day", badges: ["free", "fav"], url: "https://ideogram.ai" },
+      { icon: "🔥", name: "Adobe Firefly", desc: "Clean, commercial-safe images. Great for product mockups and lifestyle scenes.", limit: "25 credits/month", badges: ["free"], url: "https://firefly.adobe.com" },
+      { icon: "🎭", name: "Playground AI", desc: "High-quality images with style controls. Great for fashion and portrait aesthetics.", limit: "100 images/day", badges: ["free"], url: "https://playground.com" },
+      { icon: "🌊", name: "SeaArt.ai", desc: "Anime and realistic styles. Large model library. Good for dark and moody aesthetics.", limit: "Daily free credits", badges: ["free"], url: "https://seaart.ai" },
+      { icon: "✏️", name: "Canva AI", desc: "Magic Media built into Canva. Handy when you're already designing — no extra app needed.", limit: "Free tier included", badges: ["free"], url: "https://canva.com" },
+      { icon: "🔮", name: "Krea.ai", desc: "Real-time AI image generation and enhancement. Great for iterating fast on an aesthetic.", limit: "Free tier available", badges: ["free"], url: "https://krea.ai" },
+      { icon: "🌌", name: "Mage.space", desc: "Unlimited Stable Diffusion in the browser. No sign-up required. Fast and flexible.", limit: "Unlimited free", badges: ["free"], url: "https://mage.space" },
+      { icon: "⭐", name: "NightCafe", desc: "Great for artistic and painterly styles. Active community with daily challenges.", limit: "5 free/day", badges: ["free"], url: "https://creator.nightcafe.studio" },
+    ];
+
+    const videoTools = [
+      { icon: "🎬", name: "Kling AI", desc: "Best free AI video right now. Turns your images into cinematic clips. Smooth motion, beautiful quality.", limit: "66 credits/day", badges: ["free", "fav", "video"], url: "https://klingai.com" },
+      { icon: "🌀", name: "Luma Dream Machine", desc: "Stunning, realistic video from images or text. Perfect for luxury brand-style content.", limit: "30 free generations", badges: ["free", "video"], url: "https://lumalabs.ai/dream-machine" },
+      { icon: "✈️", name: "Pika Labs", desc: "Image-to-video with great style control. Easy to use, smooth results for reels content.", limit: "Free tier", badges: ["free", "video"], url: "https://pika.art" },
+      { icon: "🎥", name: "Runway ML", desc: "Professional-grade AI video. Gen-3 is incredible. Used by actual filmmakers.", limit: "125 free credits", badges: ["free", "video"], url: "https://runwayml.com" },
+      { icon: "🌊", name: "Hailuo AI", desc: "Minimax's video model. Excellent lip sync and realistic motion from a single image.", limit: "Daily free credits", badges: ["free", "video"], url: "https://hailuoai.video" },
+      { icon: "💃", name: "Viggle", desc: "Animate any character with real dance moves. Perfect for viral content on TikTok.", limit: "Free on Discord", badges: ["free", "hot", "video"], url: "https://viggle.ai" },
+      { icon: "⚡", name: "Haiper", desc: "Fast AI video generation. Good for quick content when you need something in seconds.", limit: "Free tier", badges: ["free", "video"], url: "https://haiper.ai" },
+    ];
+
+    const editTools = [
+      { icon: "✂️", name: "CapCut", desc: "The #1 tool to take your AI images and turn them into reels. Auto-captions, trending sounds, smooth transitions.", limit: "Completely free", badges: ["free", "fav"], url: "https://capcut.com" },
+      { icon: "🎨", name: "Canva", desc: "Design carousels, stories, and mockups from your AI images. Brand kit, fonts, everything.", limit: "Free tier (very generous)", badges: ["free"], url: "https://canva.com" },
+      { icon: "🖌️", name: "Photopea", desc: "Free Photoshop in your browser. Remove backgrounds, blend images, retouch — no download needed.", limit: "Completely free", badges: ["free"], url: "https://photopea.com" },
+      { icon: "🪄", name: "Remove.bg", desc: "One-click background removal. Paste your AI image, get a clean cutout instantly.", limit: "5 free HD/month", badges: ["free"], url: "https://remove.bg" },
+      { icon: "📐", name: "Upscayl", desc: "Upscale and sharpen any AI image 4x without losing quality. Desktop app, completely free.", limit: "Unlimited free", badges: ["free", "fav"], url: "https://upscayl.org" },
+      { icon: "⚡", name: "Adobe Express", desc: "Quick edits, brand kits, and social templates. Pairs perfectly with Firefly images.", limit: "Free tier available", badges: ["free"], url: "https://express.adobe.com" },
+    ];
+
+    const badgeMap = {
+      free: '<span class="badge badge-free">Free</span>',
+      hot: '<span class="badge badge-hot">Hot</span>',
+      fav: '<span class="badge badge-fav">✦ APL Pick</span>',
+      video: '<span class="badge badge-video">Video</span>',
+    };
+
+    function renderTools(tools, containerId) {
+      const el = document.getElementById(containerId);
+      el.innerHTML = tools.map(t => `
+        <a class="tool-card" href="${t.url}" target="_blank" rel="noopener">
+          <div class="tool-card-top">
+            <div class="tool-icon" style="background:var(--bg3)">${t.icon}</div>
+            <div class="tool-badges">${t.badges.map(b => badgeMap[b]).join("")}</div>
+          </div>
+          <div class="tool-name">${t.name}</div>
+          <div class="tool-desc">${t.desc}</div>
+          <div class="tool-limit">${t.limit}</div>
+          <div class="tool-link-icon">Open tool →</div>
+        </a>
+      `).join("");
+    }
+
+    renderTools(imageTools, "imageTools");
+    renderTools(videoTools, "videoTools");
+    renderTools(editTools, "editTools");
+  </script>
+</body>
+</html>
