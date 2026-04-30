@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Ema — APL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── Hero ── */
+    .about-hero {
+      position: relative;
+      min-height: 480px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 64px;
+      display: flex;
+      align-items: flex-end;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0f2e 40%, #0f0c1a 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 220px;
+      font-weight: 600;
+      color: rgba(201,169,110,0.04);
+      line-height: 1;
+      letter-spacing: -10px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+      top: -100px;
+      right: 80px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 56px;
+      max-width: 680px;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-handle {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero-handle span {
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-sub);
+      line-height: 1.6;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    /* ── Layout ── */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      margin-bottom: 64px;
+      align-items: start;
+    }
+
+    /* ── Story ── */
+    .story-block {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .story-section-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .story-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .story-paragraph {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+    }
+
+    .story-paragraph strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pull-quote {
+      background: linear-gradient(135deg, rgba(201,169,110,0.06), rgba(201,169,110,0.02));
+      border: 1px solid rgba(201,169,110,0.15);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px;
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .pull-quote cite {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .closing-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .closing-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--gold);
+      margin-top: 8px;
+    }
+
+    /* ── Sidebar Card ── */
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 32px;
+    }
+
+    .profile-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .profile-card-banner {
+      height: 100px;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #1a0f2e);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: rgba(201,169,110,0.3);
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 6px;
+    }
+
+    .profile-card-body {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #6b3a00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: #0c0c0c;
+      font-weight: 600;
+      margin: -32px auto 14px;
+      border: 3px solid var(--bg2);
+      position: relative;
+    }
+
+    .profile-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .profile-handle {
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .profile-bio {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .profile-stat {
+      background: var(--bg3);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .profile-stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      display: block;
+    }
+
+    .profile-stat-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-full {
+      width: 100%;
+      background: var(--gold);
+      color: #0c0c0c;
+      border: none;
+      border-radius: 40px;
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-full:hover { background: var(--gold-light); }
+
+    /* ── Pillars ── */
+    .pillars-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .pillars-title {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .pillar {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pillar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .pillar-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .pillar-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Bottom CTA ── */
+    .about-cta {
+      background: linear-gradient(135deg, #0f0c29 0%, #1a1040 50%, #0c0c0c 100%);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: var(--radius);
+      padding: 48px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-cta::before {
+      content: '✦';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 300px;
+      color: rgba(201,169,110,0.03);
+      pointer-events: none;
+    }
+
+    .about-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .about-cta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      position: relative;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(201,169,110,0.3);
+      color: var(--gold);
+      border-radius: 40px;
+      padding: 12px 28px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); background: var(--gold-dim); }
+
+    @media (max-width: 960px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-sidebar { position: static; }
+      .hero-name { font-size: 52px; }
+      .hero-bg-text { font-size: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">APL</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="about.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Meet Ema
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        Daily Prompts
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Community
+      </a>
+      <a href="tools.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Resources
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">P</div>
+        <div class="user-info">
+          <span class="user-name">pathtorichnesss</span>
+          <span class="user-role">Creator</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="about-hero">
+      <div class="hero-bg-text">EMA</div>
+      <div class="hero-orb"></div>
+      <div class="hero-content">
+        <div class="hero-tag">Your Instructor</div>
+        <h1 class="hero-name">Hey, I'm <em>Ema.</em></h1>
+        <p class="hero-handle"><span>@pathtorichnesss</span> &nbsp;·&nbsp; Founder of Aesthetic Prompt Lab</p>
+        <p class="hero-tagline">
+          I built my entire online business from the ground up — no blueprint, no mentor, no shortcuts. Just a strong belief there had to be a better way.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="about-layout">
+
+      <!-- Story -->
+      <div class="story-block">
+
+        <div>
+          <div class="story-section-label">The Origin</div>
+          <p class="story-paragraph">
+            I built my entire online business from the ground up with <strong>no blueprint, no mentor, and no shortcuts.</strong> Just a strong belief that there had to be a better way to create income online — and the determination to figure it out.
+          </p>
+        </div>
+
+        <p class="story-paragraph">
+          Along the way, I taught myself how to build digital products, grow an engaged audience, and sell in a way that feels <strong>natural and authentic.</strong> Eventually, I discovered how to use AI to completely elevate my content and transform the way my brand shows up online.
+        </p>
+
+        <div class="pull-quote">
+          <p>"How are you creating content that stops people mid-scroll?"</p>
+          <cite>— the question I kept getting asked</cite>
+        </div>
+
+        <div>
+          <div class="story-section-label">The Answer</div>
+          <p class="story-paragraph">
+            The answer is AI — but more specifically, it's knowing how to <strong>prompt with intention, clarity, and aesthetic direction.</strong> That one skill alone changed everything for my brand.
+          </p>
+        </div>
+
+        <p class="story-paragraph">
+          I created Aesthetic Prompt Lab because I couldn't find a course that teaches prompting in a way that feels <strong>strategic, creative, and actually aligned with building a real brand</strong> — not just generating random outputs.
+        </p>
+
+        <p class="story-paragraph">
+          Everything inside this course is built from my own experience as a creator who cares deeply about how a brand <strong>looks, feels, and converts.</strong>
+        </p>
+
+        <div>
+          <p class="closing-line">
+            "You're not just here to learn prompts. You're here to develop a creative skill set that will continue to elevate your content long after this course."
+          </p>
+          <p class="closing-sig">— Ema xxx</p>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="about-sidebar">
+
+        <div class="profile-card">
+          <div class="profile-card-banner">✦ APL ✦</div>
+          <div class="profile-card-body">
+            <div class="profile-avatar">E</div>
+            <div class="profile-name">Ema</div>
+            <div class="profile-handle">@pathtorichnesss</div>
+            <p class="profile-bio">Digital creator, entrepreneur & AI content strategist. Built from zero. Teaching everything I know.</p>
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <span class="profile-stat-val">13</span>
+                <span class="profile-stat-label">Modules</span>
+              </div>
+              <div class="profile-stat">
+                <span class="profile-stat-val">100%</span>
+                <span class="profile-stat-label">Free Tools</span>
+              </div>
+            </div>
+            <a href="index.html" class="btn-full">Start Learning →</a>
+          </div>
+        </div>
+
+        <div class="pillars-card">
+          <div class="pillars-title">What you'll walk away with</div>
+          <div class="pillar">
+            <div class="pillar-icon">✦</div>
+            <div>
+              <div class="pillar-title">Intentional Prompting</div>
+              <div class="pillar-desc">Prompt with strategy, not guesswork — every output on-brand.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🎨</div>
+            <div>
+              <div class="pillar-title">Aesthetic Direction</div>
+              <div class="pillar-desc">Control the mood, style, and feel of every image you generate.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💸</div>
+            <div>
+              <div class="pillar-title">Content That Converts</div>
+              <div class="pillar-desc">Build a brand that stops the scroll and drives real income.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔥</div>
+            <div>
+              <div class="pillar-title">A Skill Set For Life</div>
+              <div class="pillar-desc">This isn't a one-time trick — it grows with your brand.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <h2>Now let's create something worth stopping the scroll for.</h2>
+      <p>You trusted me with this. I don't take that lightly. Everything in APL is built from real experience — and it's all here for you. ✨</p>
+      <div class="cta-buttons">
+        <a href="index.html" class="btn-full" style="max-width:200px">Go to Dashboard</a>
+        <a href="tools.html" class="btn-outline">Explore Free Tools</a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
