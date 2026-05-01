@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APL Welcome Slide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: #0c0c0c;
+      display: flex;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Photo Side ── */
+    .photo-side {
+      width: 420px;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .photo-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* fade photo into black on the right */
+    .photo-side::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 40%, #0c0c0c 100%);
+    }
+
+    /* placeholder if no image */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #1a0f2e 0%, #2a1a3e 50%, #0c0c0c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      color: rgba(201,169,110,0.15);
+      letter-spacing: 6px;
+    }
+
+    /* ── Content Side ── */
+    .content-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 72px 64px 48px;
+      position: relative;
+    }
+
+    /* big watermark */
+    .watermark {
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 280px;
+      font-weight: 600;
+      color: rgba(201,169,110,0.03);
+      line-height: 1;
+      letter-spacing: -12px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c9a96e;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .tag::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: #c9a96e;
+    }
+
+    .welcome-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 100px;
+      font-weight: 300;
+      color: #f0ece4;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+    }
+
+    .welcome-word em {
+      font-style: italic;
+      color: #c9a96e;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(to right, #c9a96e, transparent);
+      margin: 28px 0;
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: #b0aa9f;
+      line-height: 1.6;
+      max-width: 380px;
+      margin-bottom: 40px;
+    }
+
+    .handle-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .handle-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #c9a96e;
+    }
+
+    .handle {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #c9a96e;
+      text-transform: lowercase;
+    }
+
+    .handle-sub {
+      font-size: 11px;
+      color: #4a4540;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Corner mark ── */
+    .corner-mark {
+      position: absolute;
+      top: 40px;
+      right: 72px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .corner-mark::before {
+      content: '✦';
+      font-size: 10px;
+      color: #c9a96e;
+    }
+
+    /* ── Bottom bar ── */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 420px;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, #c9a96e, transparent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- swap src to your actual photo URL or file path -->
+  <div class="photo-side">
+    <div class="photo-placeholder">✦</div>
+    <!-- to use your photo, replace the line above with:
+    <img src="YOUR_PHOTO.jpg" alt="Ema" />
+    -->
+  </div>
+
+  <div class="content-side">
+    <div class="watermark">APL</div>
+    <div class="corner-mark">Aesthetic Prompt Lab</div>
+
+    <div class="tag">Welcome</div>
+
+    <div class="welcome-word">Hey,<br>I'm <em>Ema.</em></div>
+
+    <div class="divider"></div>
+
+    <p class="tagline">
+      Founder of Aesthetic Prompt Lab &amp; the mind behind the prompts that stop the scroll.
+    </p>
+
+    <div class="handle-row">
+      <div class="handle-dot"></div>
+      <div>
+        <div class="handle">@pathtorichnesss</div>
+        <div class="handle-sub">Instagram &amp; Threads</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</body>
+</html>
