@@ -2,228 +2,420 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APL Welcome Slide</title>
+  <title>APL — Intro Slides</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      width: 1280px;
-      height: 720px;
-      overflow: hidden;
-      background: #0c0c0c;
+      background: #080808;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 32px;
       font-family: 'Inter', sans-serif;
     }
 
-    /* ── Photo Side ── */
-    .photo-side {
-      width: 420px;
-      height: 100%;
+    .label {
+      color: #4a4540;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: calc(50% - 640px);
+    }
+
+    /* ── Every slide is 1280×720 ── */
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background: #0c0c0c;
       position: relative;
+      overflow: hidden;
       flex-shrink: 0;
     }
 
-    .photo-side img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-
-    /* fade photo into black on the right */
-    .photo-side::after {
-      content: '';
+    /* shared watermark */
+    .wm {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, transparent 40%, #0c0c0c 100%);
-    }
-
-    /* placeholder if no image */
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(160deg, #1a0f2e 0%, #2a1a3e 50%, #0c0c0c 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 80px;
-      color: rgba(201,169,110,0.15);
-      letter-spacing: 6px;
-    }
-
-    /* ── Content Side ── */
-    .content-side {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 64px 72px 64px 48px;
-      position: relative;
-    }
-
-    /* big watermark */
-    .watermark {
-      position: absolute;
-      bottom: -40px;
-      right: -20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 280px;
       font-weight: 600;
       color: rgba(201,169,110,0.03);
       line-height: 1;
-      letter-spacing: -12px;
       user-select: none;
       pointer-events: none;
     }
 
-    .tag {
+    .corner {
+      position: absolute;
+      top: 40px;
+      right: 56px;
       font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.35);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .corner::before { content: '✦'; color: #c9a96e; font-size: 9px; }
+
+    .bottom-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #c9a96e 30%, transparent);
+    }
+
+    .slide-num {
+      position: absolute;
+      bottom: 40px;
+      right: 56px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #2a2520;
+    }
+
+    /* ════════════════════════════
+       SLIDE 1 — Welcome / Who I Am
+    ════════════════════════════ */
+    #s1 .photo {
+      position: absolute;
+      left: 0; top: 0;
+      width: 440px;
+      height: 100%;
+      background: linear-gradient(160deg, #1a0f2e 0%, #2a1818 60%, #0c0c0c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      color: rgba(201,169,110,0.1);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    #s1 .photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+    #s1 .photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 50%, #0c0c0c 100%);
+    }
+
+    #s1 .content {
+      position: absolute;
+      left: 480px; top: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px 64px 0;
+    }
+
+    #s1 .tag {
+      font-size: 10px;
       letter-spacing: 4px;
       text-transform: uppercase;
       color: #c9a96e;
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
+    #s1 .tag::before { content: ''; width: 24px; height: 1px; background: #c9a96e; }
 
-    .tag::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: #c9a96e;
-    }
-
-    .welcome-word {
+    #s1 h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 100px;
+      font-size: 88px;
       font-weight: 300;
       color: #f0ece4;
       line-height: 0.9;
       letter-spacing: -2px;
-      margin-bottom: 8px;
+      margin-bottom: 28px;
+    }
+    #s1 h1 em { font-style: italic; color: #c9a96e; }
+
+    #s1 .divider { width: 40px; height: 1px; background: linear-gradient(to right, #c9a96e, transparent); margin-bottom: 24px; }
+
+    #s1 p {
+      font-size: 15px;
+      color: #7a7570;
+      line-height: 1.7;
+      max-width: 360px;
+      margin-bottom: 32px;
     }
 
-    .welcome-word em {
-      font-style: italic;
+    #s1 .handle { font-size: 12px; letter-spacing: 2px; color: #c9a96e; }
+    #s1 .platform { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #3a3530; margin-top: 3px; }
+
+
+    /* ════════════════════════════
+       SLIDE 2 — The Journey
+    ════════════════════════════ */
+    #s2 {
+      background: linear-gradient(135deg, #0c0c0c 0%, #0f0a1a 100%);
+    }
+
+    #s2 .wm {
+      font-size: 320px;
+      bottom: -60px;
+      right: -30px;
+      letter-spacing: -16px;
+    }
+
+    #s2 .inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 64px 96px;
+      gap: 80px;
+    }
+
+    #s2 .left { flex: 1; }
+
+    #s2 .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
       color: #c9a96e;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
     }
+    #s2 .section-label::before { content: ''; width: 24px; height: 1px; background: #c9a96e; display: block; }
 
-    .divider {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(to right, #c9a96e, transparent);
-      margin: 28px 0;
-    }
-
-    .tagline {
+    #s2 h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 56px;
       font-weight: 300;
+      color: #f0ece4;
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    #s2 h2 em { font-style: italic; color: #c9a96e; }
+
+    #s2 .story {
+      font-size: 15px;
+      color: #7a7570;
+      line-height: 1.85;
+      max-width: 480px;
+    }
+    #s2 .story strong { color: #b0aa9f; font-weight: 500; }
+
+    #s2 .right {
+      width: 280px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #s2 .stat {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    #s2 .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: #c9a96e;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    #s2 .stat-label { font-size: 11px; color: #4a4540; letter-spacing: 1px; }
+
+    #s2 .pull {
+      background: linear-gradient(135deg, rgba(201,169,110,0.06), rgba(201,169,110,0.02));
+      border-left: 2px solid #c9a96e;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 18px;
+    }
+    #s2 .pull p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
       font-style: italic;
       color: #b0aa9f;
       line-height: 1.6;
-      max-width: 380px;
-      margin-bottom: 40px;
     }
 
-    .handle-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+
+    /* ════════════════════════════
+       SLIDE 3 — What Is APL / CTA
+    ════════════════════════════ */
+    #s3 {
+      background: #0c0c0c;
     }
 
-    .handle-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #c9a96e;
+    #s3 .wm {
+      font-size: 320px;
+      top: -60px;
+      left: -20px;
+      letter-spacing: -16px;
     }
 
-    .handle {
-      font-size: 13px;
-      letter-spacing: 2px;
-      color: #c9a96e;
-      text-transform: lowercase;
-    }
-
-    .handle-sub {
-      font-size: 11px;
-      color: #4a4540;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* ── Corner mark ── */
-    .corner-mark {
+    #s3 .inner {
       position: absolute;
-      top: 40px;
-      right: 72px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 120px;
+      text-align: center;
+    }
+
+    #s3 .tag {
+      font-size: 10px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(201,169,110,0.3);
+      color: #c9a96e;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 14px;
+    }
+    #s3 .tag::before, #s3 .tag::after { content: '✦'; font-size: 8px; }
+
+    #s3 h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: #f0ece4;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      max-width: 780px;
+    }
+    #s3 h2 em { font-style: italic; color: #c9a96e; }
+
+    #s3 .divider {
+      width: 48px; height: 1px;
+      background: linear-gradient(to right, transparent, #c9a96e, transparent);
+      margin: 0 auto 28px;
     }
 
-    .corner-mark::before {
-      content: '✦';
-      font-size: 10px;
+    #s3 .sub {
+      font-size: 15px;
+      color: #7a7570;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    #s3 .sub strong { color: #b0aa9f; font-weight: 500; }
+
+    #s3 .pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #s3 .pill {
+      background: rgba(201,169,110,0.08);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 40px;
+      padding: 8px 20px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
       color: #c9a96e;
     }
 
-    /* ── Bottom bar ── */
-    .bottom-bar {
-      position: absolute;
-      bottom: 0;
-      left: 420px;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(to right, #c9a96e, transparent);
+    /* print hint */
+    .hint {
+      color: #2a2520;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      align-self: flex-end;
+      margin-right: calc(50% - 640px);
     }
   </style>
 </head>
 <body>
 
-  <!-- swap src to your actual photo URL or file path -->
-  <div class="photo-side">
-    <div class="photo-placeholder">✦</div>
-    <!-- to use your photo, replace the line above with:
-    <img src="YOUR_PHOTO.jpg" alt="Ema" />
-    -->
+  <!-- ── SLIDE 1 ── -->
+  <div class="label">Slide 01 — Welcome</div>
+  <div class="slide" id="s1">
+    <div class="photo">
+      ✦
+      <!-- swap ✦ for: <img src="your-photo.jpg" /> -->
+    </div>
+    <div class="corner">APL</div>
+    <div class="content">
+      <div class="tag">Your Instructor</div>
+      <h1>Hey,<br>I'm <em>Ema.</em></h1>
+      <div class="divider"></div>
+      <p>Founder of Aesthetic Prompt Lab. Digital creator, entrepreneur, and the person who built an entire online business from zero — no blueprint, no mentor, no shortcuts.</p>
+      <div class="handle">@pathtorichnesss</div>
+      <div class="platform">Instagram &amp; Threads</div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="slide-num">01 / 03</div>
   </div>
 
-  <div class="content-side">
-    <div class="watermark">APL</div>
-    <div class="corner-mark">Aesthetic Prompt Lab</div>
-
-    <div class="tag">Welcome</div>
-
-    <div class="welcome-word">Hey,<br>I'm <em>Ema.</em></div>
-
-    <div class="divider"></div>
-
-    <p class="tagline">
-      Founder of Aesthetic Prompt Lab &amp; the mind behind the prompts that stop the scroll.
-    </p>
-
-    <div class="handle-row">
-      <div class="handle-dot"></div>
-      <div>
-        <div class="handle">@pathtorichnesss</div>
-        <div class="handle-sub">Instagram &amp; Threads</div>
+  <!-- ── SLIDE 2 ── -->
+  <div class="label">Slide 02 — The Journey</div>
+  <div class="slide" id="s2">
+    <div class="wm">APL</div>
+    <div class="corner">APL</div>
+    <div class="inner">
+      <div class="left">
+        <div class="section-label">The Origin Story</div>
+        <h2>Built from<br><em>zero.</em></h2>
+        <p class="story">
+          I started with <strong>no blueprint, no mentor, and no shortcuts.</strong> Just a strong belief that there had to be a better way to build income online — and the determination to figure it out.<br><br>
+          I taught myself digital products, audience growth, and authentic selling. Then AI entered the picture — and everything changed.<br><br>
+          People kept asking me: <strong>"how are you making content that stops the scroll?"</strong> The answer was always intentional prompting. That one skill changed everything for my brand.
+        </p>
+      </div>
+      <div class="right">
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Self-taught</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0 →</div>
+          <div class="stat-label">Built from scratch</div>
+        </div>
+        <div class="pull">
+          <p>"I couldn't find a course that taught prompting the way I needed — so I built it myself."</p>
+        </div>
       </div>
     </div>
+    <div class="bottom-line"></div>
+    <div class="slide-num">02 / 03</div>
   </div>
 
-  <div class="bottom-bar"></div>
+  <!-- ── SLIDE 3 ── -->
+  <div class="label">Slide 03 — What Is APL</div>
+  <div class="slide" id="s3">
+    <div class="wm">APL</div>
+    <div class="corner">APL</div>
+    <div class="inner">
+      <div class="tag">Aesthetic Prompt Lab</div>
+      <h2>Now I'm handing you<br>the <em>whole system.</em></h2>
+      <div class="divider"></div>
+      <p class="sub">
+        Everything I learned, tested, and built — organized into a course that teaches you to prompt with <strong>intention, aesthetic direction, and a real brand in mind.</strong> Not random outputs. A skill set that grows with you.
+      </p>
+      <div class="pills">
+        <span class="pill">✦ Done-for-you prompts</span>
+        <span class="pill">Prompt Masterclass</span>
+        <span class="pill">AI Video guides</span>
+        <span class="pill">Free tools</span>
+        <span class="pill">Daily drops</span>
+        <span class="pill">Community</span>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+    <div class="slide-num">03 / 03</div>
+  </div>
+
+  <div class="hint">Open in browser → screenshot each slide at 1280×720</div>
 
 </body>
 </html>
