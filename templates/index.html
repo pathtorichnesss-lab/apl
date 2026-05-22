@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chat</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-sidebar: #171717;
+      --bg-main: #212121;
+      --bg-input: #2f2f2f;
+      --bg-hover: #2a2a2a;
+      --bg-user: #2f2f2f;
+      --text: #ececec;
+      --text-muted: #8e8ea0;
+      --accent: #10a37f;
+      --border: #3a3a3a;
+      --sidebar-w: 260px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-main);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ── */
+    #sidebar {
+      width: var(--sidebar-w);
+      background: var(--bg-sidebar);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      padding: 12px 8px;
+      gap: 4px;
+      overflow-y: auto;
+    }
+
+    #new-chat-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .15s;
+      width: 100%;
+      text-align: left;
+    }
+    #new-chat-btn:hover { background: var(--bg-hover); }
+    #new-chat-btn svg { opacity: .7; flex-shrink: 0; }
+
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 12px 4px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .chat-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: background .15s, color .15s;
+    }
+    .chat-item:hover, .chat-item.active {
+      background: var(--bg-hover);
+      color: var(--text);
+    }
+
+    /* ── Main ── */
+    #main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* top bar */
+    #topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    #model-select {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+    }
+    #model-select option { background: var(--bg-sidebar); }
+
+    /* messages */
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      scroll-behavior: smooth;
+    }
+    #messages::-webkit-scrollbar { width: 6px; }
+    #messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .msg-row {
+      padding: 16px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .msg-row.user { background: transparent; }
+    .msg-row.assistant { background: rgba(255,255,255,.03); }
+
+    .msg-inner {
+      width: 100%;
+      max-width: 720px;
+      padding: 0 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .avatar.user-av { background: #5436da; color: #fff; }
+    .avatar.bot-av  { background: var(--accent); color: #fff; }
+
+    .msg-content {
+      flex: 1;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg-content.streaming::after {
+      content: "▋";
+      animation: blink .6s step-start infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* empty state */
+    #empty-state {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--text-muted);
+    }
+    #empty-state h2 { font-size: 26px; color: var(--text); font-weight: 600; }
+    #empty-state p  { font-size: 14px; }
+
+    /* input area */
+    #input-area {
+      flex-shrink: 0;
+      padding: 16px 24px 24px;
+      display: flex;
+      justify-content: center;
+    }
+    #input-wrap {
+      width: 100%;
+      max-width: 720px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px 14px;
+      gap: 10px;
+      transition: border-color .2s;
+    }
+    #input-wrap:focus-within { border-color: #555; }
+    #prompt {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 15px;
+      resize: none;
+      max-height: 200px;
+      line-height: 1.5;
+      font-family: inherit;
+    }
+    #prompt::placeholder { color: var(--text-muted); }
+    #send-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: opacity .15s;
+    }
+    #send-btn:disabled { opacity: .35; cursor: default; }
+    #hint {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <button id="new-chat-btn" onclick="newChat()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+    New chat
+  </button>
+  <div class="sidebar-label">Recent</div>
+  <div id="history-list"></div>
+</div>
+
+<!-- Main -->
+<div id="main">
+  <div id="topbar">
+    <span style="font-size:15px;font-weight:600;">AI Chat</span>
+    <select id="model-select">
+      <option value="gpt-4o">GPT-4o</option>
+      <option value="gpt-4o-mini">GPT-4o mini</option>
+      <option value="gpt-4-turbo">GPT-4 Turbo</option>
+      <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+    </select>
+  </div>
+
+  <div id="messages">
+    <div id="empty-state">
+      <h2>How can I help you?</h2>
+      <p>Start a conversation below.</p>
+    </div>
+  </div>
+
+  <div id="input-area">
+    <div>
+      <div id="input-wrap">
+        <textarea id="prompt" placeholder="Message AI Chat…" rows="1"></textarea>
+        <button id="send-btn" disabled title="Send">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="hint">Press Enter to send &middot; Shift+Enter for new line</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const messagesEl  = document.getElementById("messages");
+  const promptEl    = document.getElementById("prompt");
+  const sendBtn     = document.getElementById("send-btn");
+  const modelSelect = document.getElementById("model-select");
+  const historyList = document.getElementById("history-list");
+  const emptyState  = document.getElementById("empty-state");
+
+  let history = [];          // [{role, content}]
+  let streaming = false;
+  let savedChats = [];       // [{title, history}]
+  let activeChatIdx = null;
+
+  // Auto-resize textarea
+  promptEl.addEventListener("input", () => {
+    promptEl.style.height = "auto";
+    promptEl.style.height = Math.min(promptEl.scrollHeight, 200) + "px";
+    sendBtn.disabled = promptEl.value.trim() === "" || streaming;
+  });
+
+  promptEl.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!sendBtn.disabled) send();
+    }
+  });
+
+  sendBtn.addEventListener("click", send);
+
+  function newChat() {
+    history = [];
+    messagesEl.innerHTML = "";
+    messagesEl.appendChild(emptyState);
+    emptyState.style.display = "flex";
+    activeChatIdx = null;
+    document.querySelectorAll(".chat-item").forEach(el => el.classList.remove("active"));
+  }
+
+  function addMessage(role, content) {
+    emptyState.style.display = "none";
+
+    const row = document.createElement("div");
+    row.className = `msg-row ${role}`;
+
+    const inner = document.createElement("div");
+    inner.className = "msg-inner";
+
+    const av = document.createElement("div");
+    av.className = `avatar ${role === "user" ? "user-av" : "bot-av"}`;
+    av.textContent = role === "user" ? "U" : "AI";
+
+    const content_el = document.createElement("div");
+    content_el.className = "msg-content";
+    content_el.textContent = content;
+
+    inner.appendChild(av);
+    inner.appendChild(content_el);
+    row.appendChild(inner);
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+
+    return content_el;
+  }
+
+  function saveChatToSidebar(firstUserMsg) {
+    if (activeChatIdx !== null) {
+      savedChats[activeChatIdx].history = [...history];
+      return;
+    }
+    const title = firstUserMsg.slice(0, 40) + (firstUserMsg.length > 40 ? "…" : "");
+    savedChats.unshift({ title, history: [...history] });
+    activeChatIdx = 0;
+
+    const item = document.createElement("div");
+    item.className = "chat-item active";
+    item.textContent = title;
+    item.dataset.idx = "0";
+    item.addEventListener("click", () => loadChat(0));
+    historyList.prepend(item);
+
+    // re-index existing items
+    document.querySelectorAll(".chat-item").forEach(el => {
+      el.classList.remove("active");
+    });
+    item.classList.add("active");
+  }
+
+  function loadChat(idx) {
+    activeChatIdx = idx;
+    history = [...savedChats[idx].history];
+    messagesEl.innerHTML = "";
+    emptyState.style.display = "none";
+    history.forEach(m => {
+      if (m.role !== "system") addMessage(m.role, m.content);
+    });
+    document.querySelectorAll(".chat-item").forEach(el => {
+      el.classList.toggle("active", parseInt(el.dataset.idx) === idx);
+    });
+  }
+
+  async function send() {
+    const text = promptEl.value.trim();
+    if (!text || streaming) return;
+
+    promptEl.value = "";
+    promptEl.style.height = "auto";
+    sendBtn.disabled = true;
+    streaming = true;
+
+    const isFirst = history.length === 0;
+    history.push({ role: "user", content: text });
+    addMessage("user", text);
+
+    if (isFirst) saveChatToSidebar(text);
+
+    const botEl = addMessage("assistant", "");
+    botEl.classList.add("streaming");
+
+    const model = modelSelect.value;
+
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history, model }),
+      });
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let reply = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const lines = decoder.decode(value).split("\n");
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const raw = line.slice(6).trim();
+          if (raw === "[DONE]") break;
+          try {
+            const parsed = JSON.parse(raw);
+            if (parsed.error) {
+              botEl.textContent = "Error: " + parsed.error;
+              break;
+            }
+            reply += parsed.content;
+            botEl.textContent = reply;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+          } catch {}
+        }
+      }
+
+      history.push({ role: "assistant", content: reply });
+      if (activeChatIdx !== null) savedChats[activeChatIdx].history = [...history];
+    } catch (err) {
+      botEl.textContent = "Network error: " + err.message;
+    }
+
+    botEl.classList.remove("streaming");
+    streaming = false;
+    sendBtn.disabled = promptEl.value.trim() === "";
+    promptEl.focus();
+  }
+</script>
+</body>
+</html>

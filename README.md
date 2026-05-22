@@ -1,38 +1,35 @@
-# AI Prompt Bot
+# AI Chat
 
-An interactive CLI chatbot powered by OpenAI GPT-4o.
+A ChatGPT-style web chat interface powered by OpenAI GPT-4o.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
 cp .env.example .env
-# Add your OpenAI API key to .env
+# Paste your OpenAI API key into .env
 ```
 
-## Usage
+## Run
 
-**Interactive mode** (multi-turn conversation):
 ```bash
-python bot.py
+python app.py
 ```
 
-**Single prompt** (prints reply and exits):
+Then open **http://localhost:5000** in your browser.
+
+## Features
+
+- Dark ChatGPT-style UI
+- Streaming responses (text appears as it's generated)
+- Multi-turn conversation with memory
+- Sidebar with chat history
+- Model switcher (GPT-4o, GPT-4o mini, GPT-3.5 Turbo)
+- New chat button
+
+## CLI mode (optional)
+
 ```bash
-python bot.py "Explain quantum entanglement in one paragraph"
+python bot.py               # interactive terminal chat
+python bot.py "your prompt" # one-shot
 ```
-
-**Custom model or system prompt**:
-```bash
-python bot.py --model gpt-4o-mini --system "You are a pirate" "Tell me about treasure"
-```
-
-## Commands (interactive mode)
-
-| Command | Description |
-|---------|-------------|
-| `/help` | Show commands |
-| `/clear` | Clear conversation history |
-| `/system <msg>` | Change the system prompt |
-| `/model <name>` | Switch model (e.g. `gpt-4o-mini`) |
-| `/exit` | Quit |
