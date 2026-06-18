@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aesthetic Prompt Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">APL</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="about.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Meet Ema
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        Daily Prompts
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Community
+      </a>
+      <a href="tools.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Resources
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">P</div>
+        <div class="user-info">
+          <span class="user-name">pathtorichnesss</span>
+          <span class="user-role">Creator</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="header-title">Your Dashboard</h1>
+        <p class="header-sub">Welcome back. Keep creating.</p>
+      </div>
+      <div class="header-right">
+        <div class="streak-badge">
+          <span class="streak-fire">🔥</span>
+          <span class="streak-count">7 day streak</span>
+        </div>
+        <button class="btn-primary">+ New Prompt</button>
+      </div>
+    </header>
+
+    <!-- Stats Row -->
+    <section class="stats-row">
+      <div class="stat-card">
+        <span class="stat-label">Modules Completed</span>
+        <span class="stat-value">3 <span class="stat-of">/ 13</span></span>
+        <div class="stat-bar"><div class="stat-fill" style="width: 23%"></div></div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Prompts Saved</span>
+        <span class="stat-value">48</span>
+        <span class="stat-delta positive">+12 this week</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Daily Streak</span>
+        <span class="stat-value">7 days</span>
+        <span class="stat-delta positive">Personal best ✦</span>
+      </div>
+      <div class="stat-card highlight">
+        <span class="stat-label">Next Drop</span>
+        <span class="stat-value countdown" id="countdown">00:00:00</span>
+        <span class="stat-delta">Daily prompt incoming</span>
+      </div>
+    </section>
+
+    <!-- Continue Learning -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Continue Learning</h2>
+        <a href="#" class="section-link">View all →</a>
+      </div>
+      <div class="continue-card">
+        <div class="continue-thumb" style="background: linear-gradient(135deg, #1a1a2e, #16213e)">
+          <span class="continue-icon">✦</span>
+        </div>
+        <div class="continue-info">
+          <span class="continue-tag">In Progress</span>
+          <h3 class="continue-title">Prompt Masterclass</h3>
+          <p class="continue-desc">Lesson 2 of 6 — Prompt Anatomy: Subject, Style & Lighting</p>
+          <div class="continue-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 33%"></div></div>
+            <span class="progress-pct">33%</span>
+          </div>
+        </div>
+        <button class="btn-continue">Resume →</button>
+      </div>
+    </section>
+
+    <!-- All Modules -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">All Modules</h2>
+        <div class="filter-tabs">
+          <button class="filter-tab active">All</button>
+          <button class="filter-tab">In Progress</button>
+          <button class="filter-tab">Completed</button>
+          <button class="filter-tab">New</button>
+        </div>
+      </div>
+      <div class="modules-grid" id="modulesGrid"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

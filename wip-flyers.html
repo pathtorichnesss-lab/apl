@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wealth is Power — Promo Flyers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,400;1,800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --olive:    #4A6741;
+      --olive-d:  #3A5232;
+      --olive-l:  #6B8F62;
+      --lav:      #C4A8D4;
+      --lav-d:    #9A7AAE;
+      --lav-l:    #DCC8EA;
+      --cream:    #F5EDD6;
+      --cream-d:  #E6D9BC;
+      --sky:      #C8DCF0;
+      --sky-d:    #94B8D8;
+      --ink:      #1E1A14;
+      --ink-m:    #4A3F30;
+      --ink-s:    #8C7E6A;
+      --white:    #FFFFFF;
+    }
+
+    body {
+      background: #12100D;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px;
+      gap: 48px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .page-header {
+      color: rgba(245,237,214,0.3);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: calc(50% - 540px);
+    }
+
+    .flyer-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .flyer-label {
+      color: #2e2820;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Nunito', sans-serif;
+      align-self: flex-start;
+      margin-left: calc(50% - 540px);
+    }
+
+    /* Every flyer: 1080×1080 */
+    .flyer {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       FLYER 1 — Digital Products
+    ═══════════════════════════════════════ */
+    #f1 {
+      background: linear-gradient(145deg, var(--cream) 0%, #EDE5CA 55%, var(--cream-d) 100%);
+    }
+
+    #f1 .top-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 10px;
+      background: linear-gradient(to right, var(--olive), var(--lav), var(--sky));
+    }
+
+    #f1 .module-chip {
+      position: absolute;
+      top: 48px; left: 56px;
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+
+    #f1 .blob-deco {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,168,212,0.22) 0%, transparent 70%);
+      top: -120px; right: -80px;
+      pointer-events: none;
+    }
+
+    #f1 .hero-section {
+      position: absolute;
+      top: 130px; left: 56px; right: 56px;
+    }
+
+    #f1 .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--ink-s);
+      margin-bottom: 14px;
+    }
+
+    #f1 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 108px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 0.88;
+      margin-bottom: 24px;
+    }
+    #f1 h1 em { font-style: italic; color: var(--olive); }
+
+    #f1 .tagline {
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--ink-m);
+      line-height: 1.5;
+      max-width: 540px;
+      margin-bottom: 48px;
+    }
+
+    #f1 .benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    #f1 .b-item {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    #f1 .b-icon { font-size: 32px; flex-shrink: 0; }
+    #f1 .b-text { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); }
+
+    #f1 .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    #f1 .cta-btn {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 900;
+      letter-spacing: 0.5px;
+      padding: 16px 36px;
+      border-radius: 40px;
+    }
+    #f1 .cta-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; font-style: italic;
+      color: var(--ink-s);
+    }
+
+    #f1 .stickers {
+      position: absolute;
+      top: 100px; right: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    #f1 .stk { font-size: 72px; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12)); }
+    #f1 .stk-sm { font-size: 52px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1)); }
+
+    #f1 .bottom-brand {
+      position: absolute;
+      bottom: 48px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(74,103,65,0.15);
+      padding-top: 20px;
+    }
+    #f1 .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 700; font-style: italic;
+      color: var(--olive);
+      letter-spacing: 0.5px;
+    }
+    #f1 .brand-handle {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: var(--ink-s);
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════════════════
+       FLYER 2 — Affirmations & Money Mindset
+    ═══════════════════════════════════════ */
+    #f2 {
+      background: linear-gradient(160deg, var(--lav) 0%, #B89AC8 50%, var(--lav-d) 100%);
+    }
+
+    #f2 .orb {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,237,214,0.15) 0%, transparent 65%);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+
+    #f2 .top-row {
+      position: absolute;
+      top: 48px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f2 .chip {
+      background: rgba(245,237,214,0.15);
+      border: 1px solid rgba(245,237,214,0.3);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f2 .wip-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-style: italic;
+      color: rgba(245,237,214,0.5);
+    }
+
+    #f2 .center-content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 80px 80px;
+    }
+
+    #f2 .big-icon { font-size: 96px; margin-bottom: 28px; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15)); }
+
+    #f2 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    #f2 h1 em { font-style: italic; color: var(--ink); }
+
+    #f2 .sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px; font-weight: 600;
+      color: rgba(245,237,214,0.75);
+      max-width: 580px;
+      line-height: 1.55;
+      margin-bottom: 48px;
+    }
+
+    #f2 .affirmations-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+    #f2 .aff {
+      background: rgba(245,237,214,0.1);
+      border: 1px solid rgba(245,237,214,0.2);
+      border-radius: 16px;
+      padding: 16px 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+    #f2 .aff.highlight {
+      background: rgba(245,237,214,0.18);
+      border-color: rgba(245,237,214,0.4);
+      font-size: 19px;
+    }
+
+    #f2 .bottom-row {
+      position: absolute;
+      bottom: 48px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f2 .brand-pill {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 1px;
+      padding: 10px 22px;
+      border-radius: 40px;
+    }
+    #f2 .brand-ital {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-style: italic;
+      color: rgba(245,237,214,0.4);
+    }
+
+    /* Decorative stickers f2 */
+    #f2 .stk-tl { position: absolute; top: 100px; left: 60px; font-size: 56px; transform: rotate(-15deg); }
+    #f2 .stk-tr { position: absolute; top: 80px; right: 60px; font-size: 48px; transform: rotate(10deg); }
+    #f2 .stk-bl { position: absolute; bottom: 100px; left: 60px; font-size: 52px; transform: rotate(8deg); }
+    #f2 .stk-br { position: absolute; bottom: 80px; right: 60px; font-size: 44px; transform: rotate(-12deg); }
+
+    /* ═══════════════════════════════════════
+       FLYER 3 — Affiliate Marketing
+    ═══════════════════════════════════════ */
+    #f3 {
+      background: var(--ink);
+    }
+
+    #f3 .bg-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,103,65,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    #f3 .top-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(to right, var(--olive), var(--lav));
+    }
+
+    #f3 .header-area {
+      position: absolute;
+      top: 52px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f3 .header-chip {
+      background: rgba(74,103,65,0.2);
+      border: 1px solid rgba(74,103,65,0.4);
+      color: var(--olive-l);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f3 .commission-badge {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 900;
+      padding: 10px 24px;
+      border-radius: 40px;
+    }
+
+    #f3 .main-content {
+      position: absolute;
+      top: 150px; left: 56px; right: 56px;
+    }
+
+    #f3 .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--olive-l);
+      margin-bottom: 18px;
+    }
+
+    #f3 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+    #f3 h1 em { font-style: italic; color: var(--olive-l); }
+    #f3 h1 span { color: var(--lav); }
+
+    #f3 .sub-line {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px; font-weight: 600;
+      color: rgba(245,237,214,0.55);
+      max-width: 560px;
+      line-height: 1.55;
+      margin-bottom: 44px;
+    }
+
+    #f3 .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    #f3 .step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    #f3 .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-style: italic;
+      color: var(--olive-l);
+      opacity: 0.6;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    #f3 .step-title { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; color: var(--cream); margin-bottom: 4px; }
+    #f3 .step-desc { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(245,237,214,0.4); line-height: 1.5; }
+
+    #f3 .cta-full {
+      background: var(--olive);
+      border-radius: 16px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f3 .cta-full-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px; font-weight: 800;
+      color: var(--cream);
+    }
+    #f3 .cta-full-arrow {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: rgba(245,237,214,0.6);
+    }
+
+    #f3 .bottom-brand {
+      position: absolute;
+      bottom: 48px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f3 .wip-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700; font-style: italic;
+      color: var(--olive-l);
+    }
+    #f3 .handle { font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; color: rgba(245,237,214,0.25); letter-spacing: 1px; }
+
+    /* ═══════════════════════════════════════
+       FLYER 4 — Low Ticket Products
+    ═══════════════════════════════════════ */
+    #f4 {
+      background: linear-gradient(150deg, var(--olive) 0%, var(--olive-d) 100%);
+    }
+
+    #f4 .cream-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 380px;
+      background: var(--cream);
+      border-radius: 60px 60px 0 0;
+    }
+
+    #f4 .top-content {
+      position: absolute;
+      top: 52px; left: 56px; right: 56px;
+    }
+
+    #f4 .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    #f4 .chip {
+      background: rgba(245,237,214,0.15);
+      border: 1px solid rgba(245,237,214,0.25);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f4 .stk-top { font-size: 48px; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.2)); }
+
+    #f4 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 100px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.88;
+      margin-bottom: 16px;
+    }
+    #f4 h1 em { font-style: italic; color: var(--lav-l); }
+
+    #f4 .hero-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px; font-weight: 600;
+      color: rgba(245,237,214,0.65);
+      margin-bottom: 0;
+    }
+
+    #f4 .cards-area {
+      position: absolute;
+      bottom: 60px; left: 56px; right: 56px;
+    }
+
+    #f4 .tier-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    #f4 .tier {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    #f4 .tier.hot {
+      background: var(--olive);
+    }
+    #f4 .tier-icon { font-size: 36px; margin-bottom: 10px; }
+    #f4 .tier-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-s);
+      margin-bottom: 8px;
+    }
+    #f4 .tier.hot .tier-name { color: rgba(245,237,214,0.65); }
+    #f4 .tier-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+    #f4 .tier.hot .tier-price { color: var(--cream); }
+    #f4 .tier-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 600;
+      color: var(--ink-s);
+      margin-top: 6px;
+    }
+    #f4 .tier.hot .tier-label { color: rgba(245,237,214,0.6); }
+    #f4 .best-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--lav-l);
+      color: var(--ink);
+      border-radius: 40px;
+      padding: 3px 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px; font-weight: 800;
+    }
+
+    #f4 .bottom-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f4 .wip-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-style: italic;
+      color: var(--ink-s);
+    }
+    #f4 .enroll-btn {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 900;
+      letter-spacing: 0.5px;
+      padding: 13px 30px;
+      border-radius: 40px;
+    }
+
+    /* ═══════════════════════════════════════
+       FLYER 5 — Email Funnel Mastery
+    ═══════════════════════════════════════ */
+    #f5 {
+      background: linear-gradient(145deg, var(--sky) 0%, var(--sky-d) 60%, #7AA4C0 100%);
+    }
+
+    #f5 .top-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(to right, var(--olive), var(--lav), var(--sky));
+    }
+
+    #f5 .header {
+      position: absolute;
+      top: 52px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f5 .chip {
+      background: rgba(30,26,20,0.15);
+      border: 1px solid rgba(30,26,20,0.2);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f5 .stat-chip {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 900;
+      padding: 10px 22px;
+      border-radius: 40px;
+    }
+
+    #f5 .hero {
+      position: absolute;
+      top: 150px; left: 56px; right: 56px;
+    }
+    #f5 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px; font-weight: 900;
+      color: var(--ink);
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    #f5 h1 em { font-style: italic; color: var(--olive); }
+
+    #f5 .sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px; font-weight: 600;
+      color: rgba(30,26,20,0.6);
+      max-width: 560px;
+      line-height: 1.55;
+      margin-bottom: 44px;
+    }
+
+    #f5 .funnel-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 36px;
+    }
+    #f5 .f-step {
+      background: rgba(255,255,255,0.45);
+      border-radius: 14px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      backdrop-filter: blur(4px);
+    }
+    #f5 .f-step-icon { font-size: 26px; flex-shrink: 0; }
+    #f5 .f-step-title { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; color: var(--ink); }
+    #f5 .f-step-sub { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--ink-m); }
+    #f5 .f-step-badge {
+      margin-left: auto;
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 40px;
+    }
+
+    #f5 .bottom-row {
+      position: absolute;
+      bottom: 48px; left: 56px; right: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f5 .wip-brand { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: var(--olive); }
+    #f5 .stk-row { display: flex; gap: 12px; font-size: 40px; }
+
+    /* ═══════════════════════════════════════
+       FLYER 6 — Sales Psychology
+    ═══════════════════════════════════════ */
+    #f6 {
+      background: var(--cream);
+    }
+
+    #f6 .olive-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 420px;
+      background: var(--olive);
+    }
+
+    #f6 .top-content {
+      position: absolute;
+      top: 52px; left: 56px; right: 56px;
+    }
+    #f6 .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    #f6 .chip {
+      background: rgba(245,237,214,0.12);
+      border: 1px solid rgba(245,237,214,0.25);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f6 .stk-top { font-size: 52px; transform: rotate(10deg); filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15)); }
+
+    #f6 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 90px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.9;
+      margin-bottom: 16px;
+    }
+    #f6 h1 em { font-style: italic; color: var(--lav-l); }
+
+    #f6 .quote {
+      background: rgba(245,237,214,0.1);
+      border-left: 4px solid var(--lav);
+      border-radius: 0 14px 14px 0;
+      padding: 18px 22px;
+      max-width: 640px;
+    }
+    #f6 .quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-style: italic;
+      color: var(--cream);
+      line-height: 1.55;
+    }
+
+    #f6 .bottom-content {
+      position: absolute;
+      top: 460px; left: 56px; right: 56px;
+    }
+
+    #f6 .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    #f6 .principle {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    }
+    #f6 .principle-icon { font-size: 30px; flex-shrink: 0; }
+    #f6 .principle-name { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    #f6 .principle-sub { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--ink-s); line-height: 1.5; }
+
+    #f6 .bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(74,103,65,0.15);
+      padding-top: 20px;
+    }
+    #f6 .wip-brand { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: var(--olive); }
+    #f6 .handle { font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; color: var(--ink-s); }
+
+    /* ═══════════════════════════════════════
+       FLYER 7 — Instagram Growth Hacks
+    ═══════════════════════════════════════ */
+    #f7 {
+      background: linear-gradient(145deg, #2D4028 0%, var(--olive) 50%, var(--olive-d) 100%);
+    }
+
+    #f7 .sky-panel {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 440px;
+      background: var(--sky);
+      border-radius: 56px 0 0 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 56px 44px;
+    }
+
+    #f7 .left-content {
+      position: absolute;
+      top: 52px; left: 56px;
+      width: 560px;
+    }
+    #f7 .chip {
+      background: rgba(245,237,214,0.12);
+      border: 1px solid rgba(245,237,214,0.25);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+    #f7 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 86px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    #f7 h1 em { font-style: italic; color: var(--sky); }
+
+    #f7 .sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px; font-weight: 600;
+      color: rgba(245,237,214,0.6);
+      line-height: 1.55;
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+
+    #f7 .stk-row { display: flex; gap: 16px; font-size: 44px; }
+
+    #f7 .sky-panel .panel-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 20px;
+    }
+
+    #f7 .hack-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #f7 .hack {
+      background: white;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    #f7 .hack-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--olive);
+      flex-shrink: 0;
+      width: 28px;
+    }
+    #f7 .hack-text { font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; color: var(--ink); }
+
+    #f7 .bottom-brand {
+      position: absolute;
+      bottom: 48px; left: 56px;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-style: italic;
+      color: rgba(245,237,214,0.35);
+    }
+
+    /* ═══════════════════════════════════════
+       FLYER 8 — Content Creation
+    ═══════════════════════════════════════ */
+    #f8 {
+      background: linear-gradient(145deg, var(--lav-l) 0%, var(--lav) 50%, var(--lav-d) 100%);
+    }
+
+    #f8 .cream-card {
+      position: absolute;
+      top: 120px; left: 56px; right: 56px;
+      bottom: 120px;
+      background: var(--cream);
+      border-radius: 40px;
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #f8 .card-top {}
+    #f8 .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--lav-d);
+      margin-bottom: 16px;
+    }
+    #f8 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px; font-weight: 900;
+      color: var(--ink);
+      line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    #f8 h1 em { font-style: italic; color: var(--olive); }
+    #f8 .sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px; font-weight: 600;
+      color: var(--ink-m);
+      max-width: 560px;
+      line-height: 1.5;
+    }
+
+    #f8 .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    #f8 .pillar-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    #f8 .pillar-icon { font-size: 36px; margin-bottom: 10px; }
+    #f8 .pillar-name { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+    #f8 .pillar-desc { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--ink-s); line-height: 1.5; }
+
+    #f8 .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #f8 .wip-brand { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--olive); }
+    #f8 .cta-btn {
+      background: var(--olive);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 900;
+      padding: 12px 26px;
+      border-radius: 40px;
+    }
+
+    #f8 .top-stk { position: absolute; top: 56px; left: 56px; font-size: 56px; transform: rotate(-10deg); }
+    #f8 .top-stk2 { position: absolute; top: 48px; right: 80px; font-size: 52px; transform: rotate(12deg); }
+    #f8 .bot-stk { position: absolute; bottom: 56px; left: 80px; font-size: 44px; transform: rotate(8deg); }
+    #f8 .bot-stk2 { position: absolute; bottom: 48px; right: 56px; font-size: 48px; transform: rotate(-15deg); }
+
+    /* ═══════════════════════════════════════
+       FLYER 9 — Money Mindset / Wealth
+    ═══════════════════════════════════════ */
+    #f9 {
+      background: var(--ink);
+    }
+
+    #f9 .lav-blob {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,168,212,0.1) 0%, transparent 70%);
+      bottom: -150px; right: -100px;
+      pointer-events: none;
+    }
+
+    #f9 .top-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(to right, var(--lav), var(--olive), var(--sky));
+    }
+
+    #f9 .content {
+      position: absolute;
+      top: 56px; left: 56px; right: 56px;
+      bottom: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #f9 .top-area {}
+    #f9 .chip-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 44px; }
+    #f9 .chip {
+      background: rgba(196,168,212,0.15);
+      border: 1px solid rgba(196,168,212,0.3);
+      color: var(--lav);
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 40px;
+    }
+    #f9 .icon-big { font-size: 56px; }
+
+    #f9 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+    #f9 h1 em { font-style: italic; color: var(--lav); }
+
+    #f9 .center-quote {
+      background: rgba(196,168,212,0.08);
+      border: 1px solid rgba(196,168,212,0.2);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+    }
+    #f9 .center-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-style: italic;
+      color: var(--cream);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    #f9 .center-quote cite {
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: var(--lav);
+      letter-spacing: 1px;
+      font-style: normal;
+    }
+
+    #f9 .aff-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    #f9 .aff-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; font-style: italic;
+      color: rgba(245,237,214,0.6);
+    }
+    #f9 .aff-pill.hl {
+      background: rgba(196,168,212,0.15);
+      border-color: rgba(196,168,212,0.3);
+      color: var(--lav);
+    }
+
+    #f9 .bottom-area {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+    }
+    #f9 .wip-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--lav); }
+    #f9 .handle { font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; color: rgba(245,237,214,0.2); }
+
+    /* ═══════════════════════════════════════
+       FLYER 10 — AI Tools for Creators
+    ═══════════════════════════════════════ */
+    #f10 {
+      background: linear-gradient(145deg, var(--sky-d) 0%, var(--sky) 60%, var(--sky-d) 100%);
+    }
+
+    #f10 .dark-panel {
+      position: absolute;
+      top: 0; left: 0;
+      width: 480px; height: 100%;
+      background: var(--ink);
+      border-radius: 0 56px 56px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 52px;
+    }
+
+    #f10 .right-content {
+      position: absolute;
+      top: 0; right: 0;
+      width: 540px; height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px 64px 32px;
+    }
+
+    #f10 .dark-panel .chip {
+      background: rgba(200,220,240,0.1);
+      border: 1px solid rgba(200,220,240,0.2);
+      color: var(--sky);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 28px;
+    }
+
+    #f10 .dark-panel h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px; font-weight: 900;
+      color: var(--cream);
+      line-height: 0.9;
+      margin-bottom: 18px;
+    }
+    #f10 .dark-panel h1 em { font-style: italic; color: var(--sky); }
+
+    #f10 .dark-panel .sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: rgba(245,237,214,0.45);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    #f10 .wip-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-style: italic;
+      color: rgba(200,220,240,0.3);
+      margin-top: auto;
+    }
+
+    #f10 .tool-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #f10 .tool-card {
+      background: rgba(255,255,255,0.55);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      backdrop-filter: blur(4px);
+    }
+    #f10 .tool-icon { font-size: 36px; flex-shrink: 0; }
+    #f10 .tool-name { font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+    #f10 .tool-use { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--ink-m); }
+    #f10 .tool-free {
+      margin-left: auto;
+      background: rgba(74,103,65,0.15);
+      border: 1px solid rgba(74,103,65,0.25);
+      color: var(--olive);
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 40px;
+    }
+
+    /* hint */
+    .hint {
+      color: #1e1a14;
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 16px;
+      align-self: flex-end;
+      margin-right: calc(50% - 540px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">✦ Wealth is Power — Promo Flyers · 1080 × 1080</div>
+
+  <!-- ══ FLYER 1 — Digital Products ══ -->
+  <div class="flyer-label">Flyer 01 — Digital Products</div>
+  <div class="flyer" id="f1">
+    <div class="blob-deco"></div>
+    <div class="top-strip"></div>
+    <div class="module-chip">✦ Module One</div>
+    <div class="hero-section">
+      <div class="eyebrow">Turn Your Knowledge Into Cash</div>
+      <h1>Digital<br><em>Products</em></h1>
+      <div class="tagline">Create once. Sell forever.<br>Build passive income that works while you sleep.</div>
+      <div class="benefits">
+        <div class="b-item"><div class="b-icon">💡</div><div class="b-text">Choose What to Create</div></div>
+        <div class="b-item"><div class="b-icon">🛒</div><div class="b-text">Launch in 24 Hours</div></div>
+        <div class="b-item"><div class="b-icon">💸</div><div class="b-text">Passive Income Stream</div></div>
+        <div class="b-item"><div class="b-icon">🚀</div><div class="b-text">Scale Without Limits</div></div>
+      </div>
+      <div class="cta-row">
+        <div class="cta-btn">Join Wealth is Power →</div>
+        <div class="cta-brand">Your first sale is closer than you think.</div>
+      </div>
+    </div>
+    <div class="stickers">
+      <div class="stk">💡</div>
+      <div class="stk-sm">💻</div>
+      <div class="stk">🚀</div>
+    </div>
+    <div class="bottom-brand">
+      <div class="brand-name">Wealth is Power</div>
+      <div class="brand-handle">@pathtorichnesss</div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 2 — Affirmations & Money Mindset ══ -->
+  <div class="flyer-label">Flyer 02 — Affirmations & Money Mindset</div>
+  <div class="flyer" id="f2">
+    <div class="orb"></div>
+    <div class="stk-tl">✨</div>
+    <div class="stk-tr">💜</div>
+    <div class="stk-bl">🌸</div>
+    <div class="stk-br">🦋</div>
+    <div class="top-row">
+      <div class="chip">✦ Money Mindset</div>
+      <div class="wip-label">Wealth is Power</div>
+    </div>
+    <div class="center-content">
+      <div class="big-icon">🌿</div>
+      <h1>Affirmations<br>& <em>Mindset</em></h1>
+      <div class="sub">The biggest block between you and wealth is the voice in your own head. Let's change that.</div>
+      <div class="affirmations-block">
+        <div class="aff highlight">"I am worthy of wealth, success, and everything I am working towards."</div>
+        <div class="aff">"Money flows to me with ease. I release the need to struggle for abundance."</div>
+        <div class="aff">"Every action I take today is an investment in the wealthy life I am building."</div>
+        <div class="aff">"My success is inevitable. I was made for this."</div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="brand-pill">Wealth is Power</div>
+      <div class="brand-ital">@pathtorichnesss</div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 3 — Affiliate Marketing ══ -->
+  <div class="flyer-label">Flyer 03 — Affiliate Marketing Mastery</div>
+  <div class="flyer" id="f3">
+    <div class="bg-glow"></div>
+    <div class="top-accent"></div>
+    <div class="header-area">
+      <div class="header-chip">✦ Module Two</div>
+      <div class="commission-badge">Earn Up to 50% Commission</div>
+    </div>
+    <div class="main-content">
+      <div class="eyebrow">Affiliate Marketing</div>
+      <h1>Get Paid<br>to <em>Refer.</em><br><span>Repeat.</span></h1>
+      <div class="sub-line">No product? No problem. Earn passive commission from brands and courses you already love — starting with your next post.</div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Pick Your Programs</div>
+            <div class="step-desc">Stan Store, Beacons, courses, tools — align with your niche.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Activate Your Links</div>
+            <div class="step-desc">Set up once and place your link strategically everywhere.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Create Content</div>
+            <div class="step-desc">Reels, carousels, and threads that naturally weave in your links.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Collect Commission</div>
+            <div class="step-desc">Every click, every sale — you earn. Even while you sleep.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cta-full">
+        <div class="cta-full-text">Your first affiliate sale is one post away.</div>
+        <div class="cta-full-arrow">→</div>
+      </div>
+    </div>
+    <div class="bottom-brand">
+      <div class="wip-name">Wealth is Power</div>
+      <div class="handle">@pathtorichnesss</div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 4 — Low Ticket Products ══ -->
+  <div class="flyer-label">Flyer 04 — Low Ticket Products</div>
+  <div class="flyer" id="f4">
+    <div class="cream-bottom"></div>
+    <div class="top-content">
+      <div class="top-row">
+        <div class="chip">✦ Module Three</div>
+        <div class="stk-top">💰</div>
+      </div>
+      <h1>Low <em>Ticket</em><br>Products</h1>
+      <div class="hero-sub">The fastest way to your first sale — and your first loyal customer.</div>
+    </div>
+    <div class="cards-area">
+      <div class="tier-row">
+        <div class="tier">
+          <div class="tier-icon">📄</div>
+          <div class="tier-name">Starter</div>
+          <div class="tier-price">$7–27</div>
+          <div class="tier-label">PDFs & Checklists</div>
+        </div>
+        <div class="tier hot">
+          <div class="tier-icon">⭐</div>
+          <div class="tier-name">Sweet Spot</div>
+          <div class="tier-price">$27–97</div>
+          <div class="tier-label">Mini Courses</div>
+          <div class="best-badge">Best ROI</div>
+        </div>
+        <div class="tier">
+          <div class="tier-icon">🎓</div>
+          <div class="tier-name">Signature</div>
+          <div class="tier-price">$97–197</div>
+          <div class="tier-label">Workshops & Toolkits</div>
+        </div>
+      </div>
+      <div class="bottom-cta">
+        <div class="wip-brand">Wealth is Power</div>
+        <div class="enroll-btn">Start Creating →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 5 — Email Funnel Mastery ══ -->
+  <div class="flyer-label">Flyer 05 — Email Funnel Mastery</div>
+  <div class="flyer" id="f5">
+    <div class="top-strip"></div>
+    <div class="header">
+      <div class="chip">✦ Email Funnels</div>
+      <div class="stat-chip">42× ROI on Email</div>
+    </div>
+    <div class="hero">
+      <h1>Email<br><em>Funnel</em><br>Mastery</h1>
+      <div class="sub">Build an automated sequence that nurtures, converts, and earns — even when you're offline, asleep, or on holiday.</div>
+      <div class="funnel-steps">
+        <div class="f-step">
+          <div class="f-step-icon">🎁</div>
+          <div>
+            <div class="f-step-title">Step 1 — Lead Magnet</div>
+            <div class="f-step-sub">Give away irresistible free value to attract subscribers</div>
+          </div>
+          <div class="f-step-badge">Attract</div>
+        </div>
+        <div class="f-step">
+          <div class="f-step-icon">💌</div>
+          <div>
+            <div class="f-step-title">Step 2 — Welcome Sequence</div>
+            <div class="f-step-sub">5-email trust-building series that warms up new subscribers</div>
+          </div>
+          <div class="f-step-badge">Nurture</div>
+        </div>
+        <div class="f-step">
+          <div class="f-step-icon">🔗</div>
+          <div>
+            <div class="f-step-title">Step 3 — Sell on Autopilot</div>
+            <div class="f-step-sub">Strategic pitch emails that convert while you do literally anything else</div>
+          </div>
+          <div class="f-step-badge">Convert</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <div class="wip-brand">Wealth is Power</div>
+      <div class="stk-row">📧 💜 🚀</div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 6 — Sales Psychology ══ -->
+  <div class="flyer-label">Flyer 06 — Sales Psychology Secrets</div>
+  <div class="flyer" id="f6">
+    <div class="olive-top"></div>
+    <div class="top-content">
+      <div class="top-row">
+        <div class="chip">✦ Sales Psychology</div>
+        <div class="stk-top">🧠</div>
+      </div>
+      <h1>Sell Without<br>Feeling <em>Salesy</em></h1>
+      <div class="quote">
+        <p>"People don't buy products. They buy the feeling, identity, and transformation that the product represents."</p>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="principles">
+        <div class="principle">
+          <div class="principle-icon">🪞</div>
+          <div>
+            <div class="principle-name">The Mirror Effect</div>
+            <div class="principle-sub">Reflect your buyer's desires back to them in your copy</div>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">⏱️</div>
+          <div>
+            <div class="principle-name">Ethical Urgency</div>
+            <div class="principle-sub">FOMO that compels action without manipulation</div>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">🌟</div>
+          <div>
+            <div class="principle-name">Social Proof</div>
+            <div class="principle-sub">Testimonials and results placed at the exact right moment</div>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">🎯</div>
+          <div>
+            <div class="principle-name">Specificity Sells</div>
+            <div class="principle-sub">Exact numbers, concrete outcomes, precise promises</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <div class="wip-brand">Wealth is Power</div>
+        <div class="handle">@pathtorichnesss</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 7 — Instagram Growth ══ -->
+  <div class="flyer-label">Flyer 07 — Instagram Growth Hacks</div>
+  <div class="flyer" id="f7">
+    <div class="left-content">
+      <div class="chip">✦ Instagram Growth</div>
+      <h1>Grow On<br><em>Instagram</em><br>On Purpose</h1>
+      <div class="sub">Real strategies from a creator who built an engaged, buying audience from zero — no viral luck required.</div>
+      <div class="stk-row">📱 📈 🔥 ✨</div>
+    </div>
+    <div class="sky-panel">
+      <div class="panel-eyebrow">Growth Hacks</div>
+      <div class="hack-list">
+        <div class="hack"><div class="hack-num">01</div><div class="hack-text">Keyword SEO in Your Bio</div></div>
+        <div class="hack"><div class="hack-num">02</div><div class="hack-text">Consistent Aesthetic Grid</div></div>
+        <div class="hack"><div class="hack-num">03</div><div class="hack-text">Save-Worthy Carousels</div></div>
+        <div class="hack"><div class="hack-num">04</div><div class="hack-text">Hook in First 1.5 Seconds</div></div>
+        <div class="hack"><div class="hack-num">05</div><div class="hack-text">Strategic Daily Engagement</div></div>
+        <div class="hack"><div class="hack-num">06</div><div class="hack-text">Collab With Creators</div></div>
+        <div class="hack"><div class="hack-num">07</div><div class="hack-text">Sell in Your Stories Daily</div></div>
+      </div>
+    </div>
+    <div class="bottom-brand">Wealth is Power — @pathtorichnesss</div>
+  </div>
+
+  <!-- ══ FLYER 8 — Content Creation ══ -->
+  <div class="flyer-label">Flyer 08 — Content Creation Mastery</div>
+  <div class="flyer" id="f8">
+    <div class="top-stk">📷</div>
+    <div class="top-stk2">✏️</div>
+    <div class="bot-stk">🎨</div>
+    <div class="bot-stk2">✨</div>
+    <div class="cream-card">
+      <div class="card-top">
+        <div class="eyebrow">✦ Content Creation Mastery</div>
+        <h1>Content That<br><em>Converts</em></h1>
+        <div class="sub">Stop posting and hoping. Start creating with intention, strategy, and an aesthetic that stops the scroll.</div>
+      </div>
+      <div class="pillars">
+        <div class="pillar-card">
+          <div class="pillar-icon">📸</div>
+          <div class="pillar-name">Aesthetic Visuals</div>
+          <div class="pillar-desc">AI-generated imagery that builds a recognisable brand identity on every platform.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">✍️</div>
+          <div class="pillar-name">Magnetic Copy</div>
+          <div class="pillar-desc">Captions and hooks that stop the scroll and convert followers into buyers.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎬</div>
+          <div class="pillar-name">Reels Strategy</div>
+          <div class="pillar-desc">Short-form video formats that grow your reach and build your authority fast.</div>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="wip-brand">Wealth is Power</div>
+        <div class="cta-btn">Start Creating →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 9 — Money Mindset / Wealth ══ -->
+  <div class="flyer-label">Flyer 09 — Wealth Mindset</div>
+  <div class="flyer" id="f9">
+    <div class="lav-blob"></div>
+    <div class="top-strip"></div>
+    <div class="content">
+      <div class="top-area">
+        <div class="chip-row">
+          <div class="chip">✦ Wealth Mindset</div>
+          <div class="icon-big">💎</div>
+        </div>
+        <h1>You Were<br>Made for<br><em>Wealth.</em></h1>
+      </div>
+      <div class="center-quote">
+        <p>"Wealthy women didn't wait until they felt ready. They decided they were worthy — and started anyway."</p>
+        <cite>— Wealth is Power</cite>
+      </div>
+      <div class="aff-pills">
+        <div class="aff-pill hl">"I am the CEO."</div>
+        <div class="aff-pill">"Money loves me."</div>
+        <div class="aff-pill hl">"I figure it out."</div>
+        <div class="aff-pill">"Abundance is my birthright."</div>
+        <div class="aff-pill hl">"I rise, and I lift others with me."</div>
+      </div>
+      <div class="bottom-area">
+        <div class="wip-brand">Wealth is Power</div>
+        <div class="handle">@pathtorichnesss</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FLYER 10 — AI Tools ══ -->
+  <div class="flyer-label">Flyer 10 — AI Tools for Creators</div>
+  <div class="flyer" id="f10">
+    <div class="dark-panel">
+      <div class="chip">✦ AI Tools</div>
+      <h1>Work<br>Smarter<br>with <em>AI</em></h1>
+      <div class="sub">The free tool stack that replaced a £3,000/month team — and helped build a full-time income online.</div>
+      <div class="wip-brand">Wealth is Power</div>
+    </div>
+    <div class="right-content">
+      <div class="tool-cards">
+        <div class="tool-card">
+          <div class="tool-icon">🤖</div>
+          <div>
+            <div class="tool-name">ChatGPT</div>
+            <div class="tool-use">Copy, captions, email sequences, strategy</div>
+          </div>
+          <div class="tool-free">Free</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🎨</div>
+          <div>
+            <div class="tool-name">Leonardo.ai</div>
+            <div class="tool-use">Aesthetic AI images — 150 free/day</div>
+          </div>
+          <div class="tool-free">Free</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🎬</div>
+          <div>
+            <div class="tool-name">Kling AI</div>
+            <div class="tool-use">Image-to-video — cinematic quality</div>
+          </div>
+          <div class="tool-free">Free</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">✂️</div>
+          <div>
+            <div class="tool-name">CapCut</div>
+            <div class="tool-use">Reels, auto-captions, editing</div>
+          </div>
+          <div class="tool-free">Free</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">💡</div>
+          <div>
+            <div class="tool-name">Ideogram.ai</div>
+            <div class="tool-use">Text-on-image, quotes, branded graphics</div>
+          </div>
+          <div class="tool-free">Free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hint">Screenshot each flyer at 1080 × 1080 for social media</div>
+
+</body>
+</html>
